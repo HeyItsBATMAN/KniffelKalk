@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build the application
-        run: npm run ng build -- --prod --base-href /KniffelKalk/
+        run: npm run ng build -- --configuration=production --base-href /KniffelKalk/
 
       - name: Deploy to GitHub Pages
         run: npx ngh --dir=dist/kniffelkalk --message="Deploy to GitHub Pages" --branch=gh-pages

@@ -1,0 +1,5 @@
+<select [formControlName]="name" [name]="name">
+  <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+  <option selected value="0"></option>
+  <option value="0">/</option>
+</select>

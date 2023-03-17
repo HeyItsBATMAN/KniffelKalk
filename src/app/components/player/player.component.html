@@ -1,0 +1,76 @@
+<form class="rows" *ngIf="player$ | async as player" [formGroup]="group">
+  <ng-container *ngIf="score$ | async as score">
+    <div class="cell center fixed">{{ player.name }}</div>
+
+    <div class="cell spacer"></div>
+
+    <div class="cell center">
+      <app-input [numbers]="[5, 4, 3, 2, 1]" name="ones"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[10, 8, 6, 4, 2]" name="twos"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[15, 12, 9, 6, 3]" name="threes"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[20, 16, 12, 8, 4]" name="fours"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[25, 20, 15, 10, 5]" name="fives"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[30, 24, 18, 12, 6]" name="sixths"></app-input>
+    </div>
+
+    <div class="cell spacer"></div>
+
+    <div class="cell center">
+      <span *ngIf="score.isTopComplete">{{ score.topSum | formatCell }}</span>
+    </div>
+    <div class="cell center">
+      <span *ngIf="score.isTopComplete">{{ score.topSum >= 63 ? 35 : '/' }}</span>
+    </div>
+    <div class="cell center">
+      <span *ngIf="score.isTopComplete">{{ score.topWithBonus | formatCell : 3 }}</span>
+    </div>
+
+    <div class="cell spacer"></div>
+
+    <div class="cell center">
+      <app-input name="triple"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input name="quadruple"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[25]" name="fullHouse"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[30]" name="smallStraight"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[40]" name="largeStraight"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input [numbers]="[50]" name="fifths"></app-input>
+    </div>
+    <div class="cell center">
+      <app-input name="chance"></app-input>
+    </div>
+
+    <div class="cell spacer"></div>
+
+    <div class="cell center">
+      <span *ngIf="score.isBottomComplete">{{ score.bottomSum | formatCell : 3 }}</span>
+    </div>
+    <div class="cell center">
+      <span *ngIf="score.isTopComplete">{{ score.topWithBonus | formatCell : 3 }}</span>
+    </div>
+    <div class="cell center">
+      <span *ngIf="score.isTopComplete && score.isBottomComplete">
+        {{ score.combinedSum | formatCell : 3 }}
+      </span>
+    </div>
+  </ng-container>
+</form>

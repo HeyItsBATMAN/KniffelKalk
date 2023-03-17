@@ -24,6 +24,6 @@ jobs:
         run: npm run ng build -- --configuration=production --base-href /KniffelKalk/
 
       - name: Deploy to GitHub Pages
-        run: npx ngh --dir=dist/kniffelkalk --message="Deploy to GitHub Pages" --branch=gh-pages
+        run: npx ng deploy --base-href=/KniffelKalk/ --message="Deploy to GitHub Pages" --branch=gh-pages
         env:
-          NGH_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}

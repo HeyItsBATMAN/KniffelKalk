@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Replace 'main' with your default branch name if it's different
-
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,9 +21,9 @@ jobs:
         run: npm ci
 
       - name: Build the application
-        run: npm run ng build -- --prod --base-href /<REPOSITORY_NAME>/
+        run: npm run ng build -- --prod --base-href /KniffelKalk/
 
       - name: Deploy to GitHub Pages
-        run: npx ngh --dir=dist/<PROJECT_NAME> --message="Deploy to GitHub Pages" --branch=gh-pages
+        run: npx ngh --dir=dist/kniffelkalk --message="Deploy to GitHub Pages" --branch=gh-pages
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}

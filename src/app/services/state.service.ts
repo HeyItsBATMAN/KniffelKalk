@@ -14,8 +14,11 @@ export class StateService {
   public players$ = new BehaviorSubject<Player[]>([]);
 
   constructor() {
-    this.addPlayer('Angela');
-    this.addPlayer('Kai');
+    // this.addPlayer('Angela');
+    // this.addPlayer('Kai');
+    for (let i = 1; i < 6; i++) {
+      this.addPlayer('#' + i);
+    }
   }
 
   public addPlayer(name: string) {
